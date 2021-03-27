@@ -7,11 +7,7 @@ import { AnsweredQuestionsContext } from 'shared/providers/AnsweredQuestionsProv
 
 import { normalizeQuizQuestions } from 'modules/quiz/lib/normalizers'
 
-import {
-  ParsedResponse,
-  Question,
-  AnsweredQuestion,
-} from 'modules/quiz/lib/types'
+import { ParsedResponse, Question } from 'modules/quiz/lib/types'
 
 type QuizProps = {
   questions: Question[]
@@ -19,45 +15,26 @@ type QuizProps = {
 
 const Quiz = ({ questions = [] }: QuizProps) => {
   const { push } = useRouter()
-
   const [currentQuestionIndex, setSurrentQuestionIndex] = useState<number>(0)
-  const [answeredQuestions, setAnsweredQuestions] = useState<
-    AnsweredQuestion[]
-  >([])
-
-  const { setAnsweredQuestionsContext } = useContext(AnsweredQuestionsContext)
+  const { answeredQuestionsContext, setAnsweredQuestionsContext } = useContext(
+    AnsweredQuestionsContext
+  )
 
   const currentQuestion = questions[currentQuestionIndex]
-  const isLastQuestion = currentQuestionIndex === questions.length - 1
 
-  console.log({
-    // currentQuestionIndex,
-    // currentQuestion,
-    // questions,
-    // isLastQuestion,
-    lenAns: answeredQuestions.length,
-    lenQue: questions.length,
-    answeredQuestions,
-  })
-
-  const onAnswerQuestion = (optionAnswered: string) => {
-    console.log({
-      check: equals(length(answeredQuestions), length(questions)),
-    })
-
-    if (equals(length(answeredQuestions), length(questions))) {
-      setAnsweredQuestionsContext(answeredQuestions)
-      return push('results')
-    }
-
-    setAnsweredQuestions((prevState) => [
+  const onAnswerQuestion = (
+    optionAnswered: string
+  ): void | Promise<boolean> => {
+    setAnsweredQuestionsContext((prevState: Question[]) => [
       ...prevState,
       { ...currentQuestion, optionAnswered },
     ])
 
-    return !isLastQuestion
-      ? setSurrentQuestionIndex((cur) => cur + 1)
-      : () => {}
+    if (equals(length(answeredQuestionsContext), length(questions) - 1)) {
+      return push('results')
+    }
+
+    setSurrentQuestionIndex((cur) => cur + 1)
   }
 
   return (
