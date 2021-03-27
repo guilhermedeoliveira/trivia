@@ -31,3 +31,6 @@ export const isAnswerIncorrect = (answer: AnsweredQuestion): boolean =>
     map(toLower),
     includes(prop('optionAnswered')(answer))
   )(answer)
+
+export const getTotalScore = (answers: AnsweredQuestion[]): number =>
+  answers.reduce((acc, cur) => (isAnswerIncorrect(cur) ? acc : acc + 1), 0)

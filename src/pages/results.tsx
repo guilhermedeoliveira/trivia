@@ -2,7 +2,7 @@ import { useContext } from 'react'
 
 import { AnsweredQuestionsContext } from 'shared/providers/AnsweredQuestionsProvider'
 import { AnsweredQuestion } from 'modules/quiz/lib/types'
-import { isAnswerIncorrect } from 'modules/quiz/lib/normalizers'
+import { isAnswerIncorrect, getTotalScore } from 'modules/quiz/lib/normalizers'
 
 const Results = () => {
   const { answeredQuestionsContext } = useContext(AnsweredQuestionsContext)
@@ -15,6 +15,11 @@ const Results = () => {
   return (
     <div>
       Results Page
+      <h1>
+        {`You scored ${getTotalScore(answeredQuestionsContext)} / ${
+          answeredQuestionsContext.length
+        }`}
+      </h1>
       <ul></ul>
       {answeredQuestionsContext.map((a: AnsweredQuestion) => (
         <>

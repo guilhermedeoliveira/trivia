@@ -1,6 +1,6 @@
-import { normalizeQuizQuestions, isAnswerIncorrect } from '.'
+import { normalizeQuizQuestions, isAnswerIncorrect, getTotalScore } from '.'
 
-describe('normalize quiz data', () => {
+describe('normalizeQuizQuestions', () => {
   it('should return empty array when data is empty', () => {
     const data = []
     const expected = []
@@ -63,7 +63,7 @@ describe('normalize quiz data', () => {
   })
 })
 
-describe('normalize is correct answer', () => {
+describe('isAnswerIncorrect normalizer', () => {
   it('should check if the answer is correct', () => {
     const trueDataWrong = {
       category: 'politics',
@@ -105,5 +105,42 @@ describe('normalize is correct answer', () => {
     expect(isAnswerIncorrect(trueDataRight)).toEqual(true)
     expect(isAnswerIncorrect(falseDataWrong)).toEqual(false)
     expect(isAnswerIncorrect(falseDataRight)).toEqual(true)
+  })
+})
+
+describe('getTotalScore normalizer', () => {
+  it('should get the total score', () => {
+    const answers = [
+      {
+        category: 'History',
+        correct_answer: 'False',
+        difficulty: 'hard',
+        incorrectAnswers: ['True'],
+        optionAnswered: 'true',
+        question: 'The Kingdom of Prussia briefly held land in Estonia.',
+        type: 'boolean',
+      },
+      {
+        category: 'Politics',
+        correct_answer: 'True',
+        difficulty: 'hard',
+        incorrectAnswers: ['False'],
+        optionAnswered: 'true',
+        question: 'Joko Widodo has appeared in the cover of a TIME magazine.',
+        type: 'boolean',
+      },
+      {
+        category: 'Entertainment: Japanese Anime & Manga',
+        correct_answer: 'True',
+        difficulty: 'hard',
+        incorrectAnswers: ['False'],
+        optionAnswered: 'true',
+        question:
+          'The protagonist in &quot;Humanity Has Declined&quot; has no discernable name and is simply referred to as &#039;I&#039; for most of the series.',
+        type: 'boolean',
+      },
+    ]
+
+    expect(getTotalScore(answers)).toEqual(2)
   })
 })
