@@ -1,4 +1,4 @@
-import { normalizeQuizQuestions } from '.'
+import { normalizeQuizQuestions, isAnswerIncorrect } from '.'
 
 describe('normalize quiz data', () => {
   it('should return empty array when data is empty', () => {
@@ -60,5 +60,50 @@ describe('normalize quiz data', () => {
     ]
 
     expect(normalizeQuizQuestions(data)).toEqual(expected)
+  })
+})
+
+describe('normalize is correct answer', () => {
+  it('should check if the answer is correct', () => {
+    const trueDataWrong = {
+      category: 'politics',
+      difficulty: 'hard',
+      incorrectAnswers: ['True'],
+      question: 'This is a mocked question',
+      type: 'type',
+      optionAnswered: 'false',
+    }
+
+    const trueDataRight = {
+      category: 'politics',
+      difficulty: 'hard',
+      incorrectAnswers: ['True'],
+      question: 'This is a mocked question',
+      type: 'type',
+      optionAnswered: 'true',
+    }
+
+    const falseDataWrong = {
+      category: 'politics',
+      difficulty: 'hard',
+      incorrectAnswers: ['False'],
+      question: 'This is a mocked question',
+      type: 'type',
+      optionAnswered: 'true',
+    }
+
+    const falseDataRight = {
+      category: 'politics',
+      difficulty: 'hard',
+      incorrectAnswers: ['False'],
+      question: 'This is a mocked question',
+      type: 'type',
+      optionAnswered: 'false',
+    }
+
+    expect(isAnswerIncorrect(trueDataWrong)).toEqual(false)
+    expect(isAnswerIncorrect(trueDataRight)).toEqual(true)
+    expect(isAnswerIncorrect(falseDataWrong)).toEqual(false)
+    expect(isAnswerIncorrect(falseDataRight)).toEqual(true)
   })
 })

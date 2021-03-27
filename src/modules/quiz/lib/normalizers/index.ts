@@ -1,6 +1,16 @@
-import { applySpec, complement, isEmpty, map, prop, when } from 'ramda'
+import {
+  applySpec,
+  complement,
+  isEmpty,
+  map,
+  prop,
+  when,
+  pipe,
+  includes,
+  toLower,
+} from 'ramda'
 
-import { RawData, Question } from 'modules/quiz/lib/types'
+import { RawData, Question, AnsweredQuestion } from 'modules/quiz/lib/types'
 
 export const normalizeQuizQuestions = (data: RawData): Question[] =>
   map(
@@ -14,3 +24,10 @@ export const normalizeQuizQuestions = (data: RawData): Question[] =>
       })
     )
   )(data)
+
+export const isAnswerIncorrect = (answer: AnsweredQuestion): boolean =>
+  pipe(
+    prop('incorrectAnswers'),
+    map(toLower),
+    includes(prop('optionAnswered')(answer))
+  )(answer)
