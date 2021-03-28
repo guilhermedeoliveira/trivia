@@ -1,49 +1,50 @@
 import styled from 'styled-components'
 
-const Wrapper = styled.div`
-  height: 20px;
-  width: 100%;
-  background-color: ${({ theme }) => theme.colors.neutral};
-  border-radius: 25px;
-  margin: 50px;
-`
+import { color, space } from 'shared/styleguide/lib'
 
-// width: ${({ completed }) => `${completed || 0}%`};
-const CompletedArea = styled.div`
-  width: 10%;
-  height: 100%;
-  background-color: ${({ theme }) => theme.colors.primary};
-  border-radius: inherit;
-  text-align: right;
-  transition: width 1s ease-in-out;
-`
-
-// const Label = styled.p`
-//   padding: 5px;
-//   color: white;
-//   font-weight: bold;
-//   text-align: center;
-//   color: ${({ theme }) => theme.colors.primary};
-// `
-
-type ProgressBarProps = {
+type Completed = {
   completed: number
 }
 
+type ProgressBarProps = Completed
+
+const Wrapper = styled.div`
+  width: ${space('40')};
+  height: ${space('4')};
+  background-color: ${color('neutral')};
+  border-radius: 25px;
+  margin-bottom: ${space('12')};
+`
+
+const CompletedArea = styled.div<Completed>`
+  width: ${({ completed }) => `${completed || 0}%`};
+  height: 100%;
+  background-color: ${color('primary')};
+  border-radius: inherit;
+  text-align: right;
+  transition: width 0.5s ease-in-out;
+`
+
+const LabelText = styled.p`
+  padding: ${space('3')};
+  color: white;
+  font-weight: bold;
+  text-align: center;
+  color: ${color('primary')};
+`
+
 const ProgressBar = ({ completed }: ProgressBarProps) => (
   <Wrapper>
-    {/* <CompletedArea completed={completed} /> */}
-    <CompletedArea />
+    <CompletedArea completed={completed} />
 
-    <h1>{completed}</h1>
-    {/* <Label
+    <LabelText
       role="progressbar"
       aria-valuenow={completed}
-      aria-valuemin="0"
-      aria-valuemax="100"
+      aria-valuemin={0}
+      aria-valuemax={100}
     >
       {`${completed}%`} completed
-    </Label> */}
+    </LabelText>
   </Wrapper>
 )
 
