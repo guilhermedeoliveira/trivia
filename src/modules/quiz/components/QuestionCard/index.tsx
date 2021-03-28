@@ -1,7 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 
-import { Question } from 'modules/quiz/lib/types'
+import { Question } from 'shared/types'
 
 import Card from 'shared/styleguide/components/Card'
 import ProgressBar from 'shared/styleguide/components/ProgressBar'

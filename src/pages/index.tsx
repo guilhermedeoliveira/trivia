@@ -8,7 +8,7 @@ import QuestionCard from 'modules/quiz/components/QuestionCard'
 
 import { AnsweredQuestionsContext } from 'shared/providers/AnsweredQuestionsProvider'
 import { normalizeQuizQuestions } from 'modules/quiz/lib/normalizers'
-import { ParsedResponse, Question } from 'modules/quiz/lib/types'
+import { ParsedResponse, Question } from 'shared/types'
 
 type QuizProps = {
   questions: Question[]

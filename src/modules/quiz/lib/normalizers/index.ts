@@ -11,7 +11,7 @@ import {
   toLower,
 } from 'ramda'
 
-import { RawData, Question, AnsweredQuestion } from 'modules/quiz/lib/types'
+import { RawData, Question, AnsweredQuestion } from 'shared/types'
 
 export const normalizeQuizQuestions = (data: RawData): Question[] =>
   map(

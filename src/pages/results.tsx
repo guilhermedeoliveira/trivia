@@ -1,7 +1,7 @@
 import { useContext } from 'react'
 
 import { AnsweredQuestionsContext } from 'shared/providers/AnsweredQuestionsProvider'
-import { AnsweredQuestion } from 'modules/quiz/lib/types'
+import { AnsweredQuestion } from 'shared/types'
 import { isAnswerIncorrect, getTotalScore } from 'modules/quiz/lib/normalizers'
 
 import useEmptyAnsweredQuestionsRedirect from 'shared/hooks/useEmptyAnsweredQuestionsRedirect'

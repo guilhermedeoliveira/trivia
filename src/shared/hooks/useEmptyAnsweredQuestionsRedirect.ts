@@ -2,7 +2,7 @@ import { useEffect } from 'react'
 import { useRouter } from 'next/router'
 import { length } from 'ramda'
 
-import { AnsweredQuestion } from 'modules/quiz/lib/types'
+import { AnsweredQuestion } from 'shared/types'
 
 const useEmptyAnsweredQuestionsRedirect = (
   answeredQuestionsContext: AnsweredQuestion[]

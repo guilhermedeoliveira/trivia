@@ -1,6 +1,6 @@
 import { createContext, useState } from 'react'
 
-import { AnsweredQuestion } from 'modules/quiz/lib/types'
+import { AnsweredQuestion } from 'shared/types'
 
 export const AnsweredQuestionsContext = createContext(null)
 
