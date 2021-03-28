@@ -7,11 +7,6 @@ import { isAnswerIncorrect, getTotalScore } from 'modules/quiz/lib/normalizers'
 const Results = () => {
   const { answeredQuestionsContext } = useContext(AnsweredQuestionsContext)
 
-  console.log({
-    answeredQuestionsContext,
-    length: answeredQuestionsContext.length,
-  })
-
   return (
     <div>
       Results Page

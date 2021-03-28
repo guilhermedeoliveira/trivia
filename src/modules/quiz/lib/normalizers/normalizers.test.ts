@@ -31,8 +31,7 @@ describe('normalizeQuizQuestions', () => {
         correct_answer: 'True',
         difficulty: 'hard',
         incorrect_answers: ['False'],
-        question:
-          'The protagonist in &quot;Humanity Has Declined&quot; has no discernable name and is simply referred to as &#039;I&#039; for most of the series.',
+        question: 'Japan was part of the Allied Powers during World War I.',
         type: 'boolean',
       },
     ]
@@ -54,8 +53,7 @@ describe('normalizeQuizQuestions', () => {
         category: 'Entertainment: Japanese Anime & Manga',
         difficulty: 'hard',
         incorrectAnswers: ['False'],
-        question:
-          'The protagonist in &quot;Humanity Has Declined&quot; has no discernable name and is simply referred to as &#039;I&#039; for most of the series.',
+        question: 'Japan was part of the Allied Powers during World War I.',
       },
     ]
 
@@ -135,8 +133,7 @@ describe('getTotalScore normalizer', () => {
         difficulty: 'hard',
         incorrectAnswers: ['False'],
         optionAnswered: 'true',
-        question:
-          'The protagonist in &quot;Humanity Has Declined&quot; has no discernable name and is simply referred to as &#039;I&#039; for most of the series.',
+        question: 'Japan was part of the Allied Powers during World War I.',
         type: 'boolean',
       },
     ]

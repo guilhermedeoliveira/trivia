@@ -8,8 +8,9 @@ const Wrapper = styled.div`
   margin: 50px;
 `
 
+// width: ${({ completed }) => `${completed || 0}%`};
 const CompletedArea = styled.div`
-  width: ${({ completed }) => `${completed || 0}%`};
+  width: 10%;
   height: 100%;
   background-color: ${({ theme }) => theme.colors.primary};
   border-radius: inherit;
@@ -17,13 +18,13 @@ const CompletedArea = styled.div`
   transition: width 1s ease-in-out;
 `
 
-const Label = styled.p`
-  padding: 5px;
-  color: white;
-  font-weight: bold;
-  text-align: center;
-  color: ${({ theme }) => theme.colors.primary};
-`
+// const Label = styled.p`
+//   padding: 5px;
+//   color: white;
+//   font-weight: bold;
+//   text-align: center;
+//   color: ${({ theme }) => theme.colors.primary};
+// `
 
 type ProgressBarProps = {
   completed: number
@@ -31,16 +32,18 @@ type ProgressBarProps = {
 
 const ProgressBar = ({ completed }: ProgressBarProps) => (
   <Wrapper>
-    <CompletedArea completed={completed} />
+    {/* <CompletedArea completed={completed} /> */}
+    <CompletedArea />
 
-    <Label
+    <h1>{completed}</h1>
+    {/* <Label
       role="progressbar"
       aria-valuenow={completed}
       aria-valuemin="0"
       aria-valuemax="100"
     >
       {`${completed}%`} completed
-    </Label>
+    </Label> */}
   </Wrapper>
 )
 
