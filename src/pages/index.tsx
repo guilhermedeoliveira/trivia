@@ -3,10 +3,11 @@ import { GetStaticProps } from 'next'
 import { useRouter } from 'next/router'
 import { equals, length } from 'ramda'
 
+import Page from 'shared/styleguide/components/Page'
+import QuestionCard from 'modules/quiz/components/QuestionCard'
+
 import { AnsweredQuestionsContext } from 'shared/providers/AnsweredQuestionsProvider'
-
 import { normalizeQuizQuestions } from 'modules/quiz/lib/normalizers'
-
 import { ParsedResponse, Question } from 'modules/quiz/lib/types'
 
 type QuizProps = {
@@ -37,23 +38,16 @@ const Quiz = ({ questions = [] }: QuizProps) => {
     setSurrentQuestionIndex((cur) => cur + 1)
   }
 
+  const completed = ((currentQuestionIndex + 1) / questions.length) * 100
+
   return (
-    <div>
-      <header>header</header>
-
-      <main>
-        <h1>{currentQuestion.category}</h1>
-        <h2>{currentQuestion.difficulty}</h2>
-        <p>{currentQuestion.question}</p>
-
-        <div>
-          <button onClick={() => onAnswerQuestion('true')}>true</button>
-          <button onClick={() => onAnswerQuestion('false')}>false</button>
-        </div>
-      </main>
-
-      <footer>footer</footer>
-    </div>
+    <Page>
+      <QuestionCard
+        question={currentQuestion}
+        onAnswerQuestion={onAnswerQuestion}
+        completed={completed}
+      />
+    </Page>
   )
 }
 
