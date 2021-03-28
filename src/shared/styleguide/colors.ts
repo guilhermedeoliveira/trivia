@@ -1,7 +1,9 @@
 const colors = {
-  primary: '#0070f3',
-  neutral: '#e0e0de',
+  primary: '#059669',
+  neutral: '#eeeeee',
+  alert: '#EF4444',
   black: '#000000',
+  white: '#ffffff',
 }
 
 export default colors
