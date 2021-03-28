@@ -4,6 +4,8 @@ import {
   ThemeProvider as StyledThemeProvider,
 } from 'styled-components'
 
+import colors from 'shared/styleguide/colors'
+
 const GlobalStyle = createGlobalStyle`
   body {
     margin: 0;
@@ -13,10 +15,7 @@ const GlobalStyle = createGlobalStyle`
 `
 
 const theme = {
-  colors: {
-    primary: '#0070f3',
-    neutral: '#e0e0de',
-  },
+  colors,
 }
 
 type ThemeProviderProps = {
