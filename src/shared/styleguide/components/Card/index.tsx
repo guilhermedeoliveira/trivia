@@ -14,7 +14,6 @@ const Wrapper = styled.div`
   cursor: pointer;
   height: ${space('88')};
   width: 100%;
-  max-width: ${space('196')};
   border-radius: 15px;
   background-color: ${color('white')};
   box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.15);
@@ -22,6 +21,7 @@ const Wrapper = styled.div`
   padding: ${space('4')};
 
   @media (min-width: 800px) {
+    width: ${space('196')};
     padding: ${space('8')};
   }
 
