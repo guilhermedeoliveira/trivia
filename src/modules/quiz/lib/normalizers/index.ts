@@ -6,6 +6,7 @@ import {
   prop,
   when,
   pipe,
+  replace,
   includes,
   toLower,
 } from 'ramda'
@@ -20,7 +21,12 @@ export const normalizeQuizQuestions = (data: RawData): Question[] =>
         category: prop('category'),
         difficulty: prop('difficulty'),
         incorrectAnswers: prop('incorrect_answers'),
-        question: prop('question'),
+        question: pipe(
+          prop('question'),
+          replace(/&quot;/g, '"'),
+          replace(/&#039;/g, "'"),
+          replace(/&epsilon/g, 'Ε')
+        ),
       })
     )
   )(data)
