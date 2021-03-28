@@ -16,7 +16,8 @@ type QuizProps = {
 
 const Quiz = ({ questions = [] }: QuizProps) => {
   const { push } = useRouter()
-  const [currentQuestionIndex, setSurrentQuestionIndex] = useState<number>(0)
+  const [currentQuestionIndex, setCurrentQuestionIndex] = useState<number>(0)
+  const [completed, setCompleted] = useState<number>(0)
   const { answeredQuestionsContext, setAnsweredQuestionsContext } = useContext(
     AnsweredQuestionsContext
   )
@@ -25,20 +26,23 @@ const Quiz = ({ questions = [] }: QuizProps) => {
 
   const onAnswerQuestion = (
     optionAnswered: string
-  ): void | Promise<boolean> => {
+  ): void | Promise<boolean> | NodeJS.Timeout => {
     setAnsweredQuestionsContext((prevState: Question[]) => [
       ...prevState,
       { ...currentQuestion, optionAnswered },
     ])
 
     if (equals(length(answeredQuestionsContext), length(questions) - 1)) {
-      return push('results')
+      setCompleted((cur) => cur + 10)
+
+      return setTimeout(() => {
+        push('results')
+      }, 600)
     }
 
-    setSurrentQuestionIndex((cur) => cur + 1)
+    setCompleted((cur) => cur + 10)
+    setCurrentQuestionIndex((cur) => cur + 1)
   }
-
-  const completed = ((currentQuestionIndex + 1) / questions.length) * 100
 
   return (
     <Page>
