@@ -4,8 +4,12 @@ import { AnsweredQuestionsContext } from 'shared/providers/AnsweredQuestionsProv
 import { AnsweredQuestion } from 'modules/quiz/lib/types'
 import { isAnswerIncorrect, getTotalScore } from 'modules/quiz/lib/normalizers'
 
+import useEmptyAnsweredQuestionsRedirect from 'shared/hooks/useEmptyAnsweredQuestionsRedirect'
+
 const Results = () => {
   const { answeredQuestionsContext } = useContext(AnsweredQuestionsContext)
+
+  useEmptyAnsweredQuestionsRedirect(answeredQuestionsContext)
 
   return (
     <div>
