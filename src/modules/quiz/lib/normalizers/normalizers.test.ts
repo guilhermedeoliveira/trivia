@@ -1,4 +1,9 @@
-import { normalizeQuizQuestions, isAnswerIncorrect, getTotalScore } from '.'
+import {
+  normalizeQuizQuestions,
+  isAnswerIncorrect,
+  getTotalScore,
+  generateScoreFeedback,
+} from '.'
 
 describe('normalizeQuizQuestions', () => {
   it('should return empty array when data is empty', () => {
@@ -139,5 +144,21 @@ describe('getTotalScore normalizer', () => {
     ]
 
     expect(getTotalScore(answers)).toEqual(2)
+  })
+})
+
+describe('generateScoreFeedback normalizer', () => {
+  it('should generate the score feedback', () => {
+    expect(generateScoreFeedback(0)).toEqual('Oh no, please try again!')
+    expect(generateScoreFeedback(1)).toEqual('Oh no, please try again!')
+    expect(generateScoreFeedback(2)).toEqual('Oh no, please try again!')
+    expect(generateScoreFeedback(3)).toEqual('I know you can do it better!')
+    expect(generateScoreFeedback(4)).toEqual('I know you can do it better!')
+    expect(generateScoreFeedback(5)).toEqual('I know you can do it better!')
+    expect(generateScoreFeedback(6)).toEqual('You did it really good!')
+    expect(generateScoreFeedback(7)).toEqual('You did it really good!')
+    expect(generateScoreFeedback(8)).toEqual('Awesome! You are outstanding!')
+    expect(generateScoreFeedback(9)).toEqual('Awesome! You are outstanding!')
+    expect(generateScoreFeedback(10)).toEqual('Awesome! You are outstanding!')
   })
 })
