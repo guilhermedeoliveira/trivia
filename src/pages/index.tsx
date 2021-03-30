@@ -37,7 +37,7 @@ const Quiz = ({ questions = [] }: QuizProps) => {
 
       return setTimeout(() => {
         push('results')
-      }, 500)
+      }, 400)
     }
 
     setCompleted((cur) => cur + 10)
