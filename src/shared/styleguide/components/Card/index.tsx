@@ -11,8 +11,7 @@ const Wrapper = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  cursor: pointer;
-  height: ${space('88')};
+  min-height: ${space('88')};
   width: 100%;
   border-radius: 15px;
   background-color: ${color('white')};
