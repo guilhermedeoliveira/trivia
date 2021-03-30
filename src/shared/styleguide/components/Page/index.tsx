@@ -3,6 +3,11 @@ import styled, { css } from 'styled-components'
 
 import { color, space, fontSize } from 'shared/styleguide/lib'
 
+type PageProps = {
+  title: string
+  children: React.ReactNode
+}
+
 const centralizedFlex = css`
   display: flex;
   flex-direction: column;
@@ -11,19 +16,40 @@ const centralizedFlex = css`
 `
 
 const Wrapper = styled.div`
-  display: grid;
-  justify-content: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
   align-items: center;
   width: 100vw;
   height: 100vh;
   background-color: ${color('neutral')};
+  overflow-y: auto;
   padding: ${space('4')};
+
+  @media (min-width: 800px) {
+    padding: ${space('8')} ${space('8')};
+  }
 `
 
 const Header = styled.header`
   ${centralizedFlex}
+  padding-bottom: ${space('4')};
 
-  font-size: ${fontSize('2xl')};
+  @media (min-width: 800px) {
+    padding-bottom: ${space('8')};
+  }
+
+  h1 {
+    font-size: ${fontSize('2xl')};
+  }
+`
+
+const Main = styled.main`
+  padding-bottom: ${space('8')};
+
+  @media (min-width: 800px) {
+    padding-bottom: ${space('12')};
+  }
 `
 
 const Footer = styled.footer`
@@ -34,15 +60,13 @@ const Footer = styled.footer`
   }
 `
 
-type PageProps = {
-  children: React.ReactNode
-}
-
-const Page = ({ children }: PageProps) => (
+const Page = ({ title, children }: PageProps) => (
   <Wrapper>
-    <Header>Trivia Game!</Header>
+    <Header>
+      <h1>{title}</h1>
+    </Header>
 
-    <main>{children}</main>
+    <Main>{children}</Main>
 
     <Footer>
       <p>

@@ -37,7 +37,7 @@ const Quiz = ({ questions = [] }: QuizProps) => {
 
       return setTimeout(() => {
         push('results')
-      }, 600)
+      }, 500)
     }
 
     setCompleted((cur) => cur + 10)
@@ -45,7 +45,7 @@ const Quiz = ({ questions = [] }: QuizProps) => {
   }
 
   return (
-    <Page>
+    <Page title="Trivia Game!">
       <QuestionCard
         question={currentQuestion}
         onAnswerQuestion={onAnswerQuestion}
