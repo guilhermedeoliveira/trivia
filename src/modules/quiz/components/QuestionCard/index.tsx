@@ -56,15 +56,25 @@ const QuestionCard = ({ question, completed, onAnswerQuestion }: CardProps) => (
       <ProgressBar completed={completed} />
     </ProgressBarWrapper>
 
-    <Category>{question.category}</Category>
-    <DifficultyText>Difficulty {question.difficulty}</DifficultyText>
-    <QuestionText>{question.question}</QuestionText>
+    <Category aria-label="category">{question.category}</Category>
+
+    <DifficultyText aria-label="difficulty">
+      Difficulty {question.difficulty}
+    </DifficultyText>
+
+    <QuestionText aria-label="question">{question.question}</QuestionText>
 
     <ButtonsWrapper>
-      <Button variant="yes" onClick={() => onAnswerQuestion('true')}>
+      <Button
+        variant="yes"
+        onClick={() => completed < 100 && onAnswerQuestion('true')}
+      >
         true
       </Button>
-      <Button variant="no" onClick={() => onAnswerQuestion('false')}>
+      <Button
+        variant="no"
+        onClick={() => completed < 100 && onAnswerQuestion('false')}
+      >
         false
       </Button>
     </ButtonsWrapper>

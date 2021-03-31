@@ -42,6 +42,7 @@ const ProgressBar = ({ completed }: ProgressBarProps) => (
       aria-valuenow={completed}
       aria-valuemin={0}
       aria-valuemax={100}
+      aria-label={`${completed}% completed`}
     >
       {`${completed}%`} completed
     </LabelText>

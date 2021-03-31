@@ -1,4 +1,5 @@
 import React from 'react'
+import Link from 'next/link'
 import styled, { css } from 'styled-components'
 
 import { color, space, fontSize } from 'shared/styleguide/lib'
@@ -6,6 +7,10 @@ import { color, space, fontSize } from 'shared/styleguide/lib'
 type PageProps = {
   title: string
   children: React.ReactNode
+  navigation?: {
+    text?: string
+    page?: string
+  }
 }
 
 const centralizedFlex = css`
@@ -18,16 +23,16 @@ const centralizedFlex = css`
 const Wrapper = styled.div`
   display: flex;
   flex-direction: column;
-  justify-content: flex-start;
+  justify-content: space-between;
   align-items: center;
   width: 100vw;
   height: 100vh;
   background-color: ${color('neutral')};
   overflow-y: auto;
-  padding: ${space('4')};
+  padding: ${space('4')} ${space('4')} ${space('8')};
 
   @media (min-width: 800px) {
-    padding: ${space('8')} ${space('8')};
+    padding: ${space('8')} ${space('8')} ${space('12')};
   }
 `
 
@@ -40,11 +45,13 @@ const Header = styled.header`
   }
 
   h1 {
+    text-align: center;
     font-size: ${fontSize('2xl')};
   }
 `
 
 const Main = styled.main`
+  flex-grow: 1;
   padding-bottom: ${space('8')};
 
   @media (min-width: 800px) {
@@ -59,8 +66,17 @@ const Footer = styled.footer`
     margin-bottom: ${space('4')};
   }
 `
+const StyledLink = styled.a`
+  cursor: pointer;
+  text-transform: uppercase;
+`
 
-const Page = ({ title, children }: PageProps) => (
+const Page = ({
+  title,
+  children,
+  navigation = {},
+  navigation: { text, page = '' } = {},
+}: PageProps) => (
   <Wrapper>
     <Header>
       <h1>{title}</h1>
@@ -68,12 +84,13 @@ const Page = ({ title, children }: PageProps) => (
 
     <Main>{children}</Main>
 
-    <Footer>
-      <p>
-        Designed by <strong>guilhermedeoliveira</strong>
-      </p>
-      <span>&#174; {new Date().getFullYear()}</span>
-    </Footer>
+    {Object.entries(navigation) && (
+      <Footer>
+        <Link href={`/${page}`}>
+          <StyledLink>{text}</StyledLink>
+        </Link>
+      </Footer>
+    )}
   </Wrapper>
 )
 
