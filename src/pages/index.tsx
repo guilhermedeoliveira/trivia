@@ -14,6 +14,7 @@ const Wrapper = styled.div`
 
 const Text = styled.p`
   font-size: ${fontSize('large')};
+  text-align: center;
 
   @media (min-width: 800px) {
     font-size: ${fontSize('2xl')};
