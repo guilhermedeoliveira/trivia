@@ -6,6 +6,8 @@ import Page from 'shared/styleguide/components/Page'
 import ResultsCard from 'modules/quiz/components/ResultsCard'
 
 import useEmptyAnsweredQuestionsRedirect from 'shared/hooks/useEmptyAnsweredQuestionsRedirect'
+import useResetAnsweredQuestions from 'shared/hooks/useResetAnsweredQuestions'
+
 import {
   getTotalScore,
   generateScoreFeedback,
@@ -26,7 +28,9 @@ const ScoreFeedback = styled.h2`
 
 const Results = () => {
   const { answeredQuestionsContext } = useContext(AnsweredQuestionsContext)
+
   useEmptyAnsweredQuestionsRedirect(answeredQuestionsContext)
+  useResetAnsweredQuestions()
 
   const totalScore = getTotalScore(answeredQuestionsContext)
   const scoreFeedback = generateScoreFeedback(totalScore)
@@ -34,8 +38,9 @@ const Results = () => {
   return (
     <Page
       title={`You scored ${totalScore} / ${answeredQuestionsContext.length}`}
+      navigation={{ text: 'play again?' }}
     >
-      <ScoreFeedback>{scoreFeedback}</ScoreFeedback>
+      <ScoreFeedback aria-label="score feedback">{scoreFeedback}</ScoreFeedback>
 
       <ResultsCard answers={answeredQuestionsContext} />
     </Page>
