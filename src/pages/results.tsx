@@ -1,17 +1,17 @@
 import { useContext } from 'react'
 import styled from 'styled-components'
 
-import { AnsweredQuestionsContext } from 'shared/providers/AnsweredQuestionsProvider'
 import Page from 'shared/styleguide/components/Page'
-import ResultsCard from 'modules/quiz/components/ResultsCard'
+import ResultsCard from 'modules/results/components/ResultsCard'
 
+import { AnsweredQuestionsContext } from 'shared/providers/AnsweredQuestionsProvider'
 import useEmptyAnsweredQuestionsRedirect from 'shared/hooks/useEmptyAnsweredQuestionsRedirect'
 import useResetAnsweredQuestions from 'shared/hooks/useResetAnsweredQuestions'
 
 import {
   getTotalScore,
   generateScoreFeedback,
-} from 'modules/quiz/lib/normalizers'
+} from 'modules/results/lib/helpers'
 import { space, fontSize } from 'shared/styleguide/lib'
 
 const ScoreFeedback = styled.h2`
