@@ -19,6 +19,5 @@ export type AnsweredQuestion = {
   difficulty: string
   incorrectAnswers: string[]
   question: string
-  type: string
   optionAnswered: string
 }

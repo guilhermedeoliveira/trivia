@@ -7,7 +7,7 @@ import Page from 'shared/styleguide/components/Page'
 import QuestionCard from 'modules/quiz/components/QuestionCard'
 
 import { AnsweredQuestionsContext } from 'shared/providers/AnsweredQuestionsProvider'
-import { normalizeQuizQuestions } from 'modules/quiz/lib/normalizers'
+import { normalizeQuizQuestions } from 'modules/quiz/lib/helpers'
 import { ParsedResponse, Question } from 'shared/types'
 
 type QuizProps = {
