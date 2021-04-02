@@ -40,18 +40,21 @@ describe('normalizeQuizQuestions', () => {
       {
         category: 'History',
         difficulty: 'hard',
+        correctAnswer: 'False',
         incorrectAnswers: ['True'],
         question: 'The Kingdom of Prussia briefly held land in Estonia.',
       },
       {
         category: 'Politics',
         difficulty: 'hard',
+        correctAnswer: 'True',
         incorrectAnswers: ['False'],
         question: 'Joko Widodo has appeared in the cover of a TIME magazine.',
       },
       {
         category: 'Entertainment: Japanese Anime & Manga',
         difficulty: 'hard',
+        correctAnswer: 'True',
         incorrectAnswers: ['False'],
         question: 'Japan was part of the Allied Powers during World War I.',
       },

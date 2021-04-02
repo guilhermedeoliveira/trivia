@@ -18,6 +18,7 @@ export const normalizeQuizQuestions = (data: RawData): Question[] =>
       applySpec<Question>({
         category: prop('category'),
         difficulty: prop('difficulty'),
+        correctAnswer: prop('correct_answer'),
         incorrectAnswers: prop('incorrect_answers'),
         question: pipe(
           prop('question'),

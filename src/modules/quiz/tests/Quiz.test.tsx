@@ -22,6 +22,7 @@ const questions = [
   {
     category: 'Entertainment: Video Games',
     difficulty: 'hard',
+    correctAnswer: 'True',
     incorrectAnswers: ['False'],
     question:
       'In "The Sims" series, the most members in a household you can have is 8.',
@@ -29,12 +30,14 @@ const questions = [
   {
     category: 'Entertainment: Video Games',
     difficulty: 'hard',
+    correctAnswer: 'False',
     incorrectAnswers: ['True'],
     question: 'The first "Metal Gear" game was released for the PlayStation 1.',
   },
   {
     category: 'Mythology',
     difficulty: 'hard',
+    correctAnswer: 'True',
     incorrectAnswers: ['False'],
     question:
       'Rannamaari was a sea demon that haunted the people of the Maldives and had to be appeased monthly with the sacrifice of a virgin girl.',
@@ -42,12 +45,14 @@ const questions = [
   {
     category: 'Entertainment: Video Games',
     difficulty: 'hard',
+    correctAnswer: 'False',
     incorrectAnswers: ['True'],
     question: `All of these maps were in "Tom Clancy's Rainbow Six Siege" on its initial release: House, Clubhouse, Border, Consulate.`,
   },
   {
     category: 'Politics',
     difficulty: 'hard',
+    correctAnswer: 'True',
     incorrectAnswers: ['False'],
     question:
       "Nazi Germany surrendered on Harry Truman's birthday while he was president.",
@@ -55,6 +60,7 @@ const questions = [
   {
     category: 'Entertainment: Film',
     difficulty: 'hard',
+    correctAnswer: 'False',
     incorrectAnswers: ['True'],
     question:
       'The weapon Clint Eastwood uses in "Dirty Harry" was a .44 Automag.',
@@ -62,6 +68,7 @@ const questions = [
   {
     category: 'Entertainment: Japanese Anime & Manga',
     difficulty: 'hard',
+    correctAnswer: 'True',
     incorrectAnswers: ['False'],
     question:
       'In the "Kagerou Daze" series, Shintaro Kisaragi is prominently shown with the color red.',
@@ -69,12 +76,14 @@ const questions = [
   {
     category: 'Entertainment: Music',
     difficulty: 'hard',
+    correctAnswer: 'True',
     incorrectAnswers: ['False'],
     question: 'The singer Billie Holiday was also known as "Lady Day".',
   },
   {
     category: 'Art',
     difficulty: 'hard',
+    correctAnswer: 'True',
     incorrectAnswers: ['False'],
     question:
       "The Statue of Liberty's official name is &ldquo;Liberty Enlightening the World&rdquo;.",
@@ -82,6 +91,7 @@ const questions = [
   {
     category: 'History',
     difficulty: 'hard',
+    correctAnswer: 'True',
     incorrectAnswers: ['False'],
     question: 'The man that shot Alexander Hamilton was named Aaron Burr.',
   },

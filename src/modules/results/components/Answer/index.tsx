@@ -35,7 +35,7 @@ const Answer = ({ answer }: AnswerProps) => (
 
     <Wrapper>
       <AnswerText isIncorrect={isAnswerIncorrect(answer)}>
-        {answer.question}
+        {`${answer.question} (${answer.correctAnswer})`}
       </AnswerText>
     </Wrapper>
   </ListItem>

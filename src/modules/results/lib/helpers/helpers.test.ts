@@ -5,6 +5,7 @@ describe('isAnswerIncorrect', () => {
     const trueDataWrong = {
       category: 'politics',
       difficulty: 'hard',
+      correctAnswer: 'False',
       incorrectAnswers: ['True'],
       question: 'This is a mocked question',
       type: 'type',
@@ -14,6 +15,7 @@ describe('isAnswerIncorrect', () => {
     const trueDataRight = {
       category: 'politics',
       difficulty: 'hard',
+      correctAnswer: 'False',
       incorrectAnswers: ['True'],
       question: 'This is a mocked question',
       type: 'type',
@@ -23,6 +25,7 @@ describe('isAnswerIncorrect', () => {
     const falseDataWrong = {
       category: 'politics',
       difficulty: 'hard',
+      correctAnswer: 'True',
       incorrectAnswers: ['False'],
       question: 'This is a mocked question',
       type: 'type',
@@ -32,6 +35,7 @@ describe('isAnswerIncorrect', () => {
     const falseDataRight = {
       category: 'politics',
       difficulty: 'hard',
+      correctAnswer: 'True',
       incorrectAnswers: ['False'],
       question: 'This is a mocked question',
       type: 'type',
@@ -52,6 +56,7 @@ describe('getTotalScore', () => {
         category: 'History',
         correct_answer: 'False',
         difficulty: 'hard',
+        correctAnswer: 'False',
         incorrectAnswers: ['True'],
         optionAnswered: 'true',
         question: 'The Kingdom of Prussia briefly held land in Estonia.',
@@ -61,6 +66,7 @@ describe('getTotalScore', () => {
         category: 'Politics',
         correct_answer: 'True',
         difficulty: 'hard',
+        correctAnswer: 'True',
         incorrectAnswers: ['False'],
         optionAnswered: 'true',
         question: 'Joko Widodo has appeared in the cover of a TIME magazine.',
@@ -70,6 +76,7 @@ describe('getTotalScore', () => {
         category: 'Entertainment: Japanese Anime & Manga',
         correct_answer: 'True',
         difficulty: 'hard',
+        correctAnswer: 'True',
         incorrectAnswers: ['False'],
         optionAnswered: 'true',
         question: 'Japan was part of the Allied Powers during World War I.',

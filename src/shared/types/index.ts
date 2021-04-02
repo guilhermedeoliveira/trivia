@@ -17,6 +17,7 @@ export type Question = Omit<AnsweredQuestion, 'optionAnswered'>
 export type AnsweredQuestion = {
   category: string
   difficulty: string
+  correctAnswer: string
   incorrectAnswers: string[]
   question: string
   optionAnswered: string
