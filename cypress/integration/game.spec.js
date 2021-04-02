@@ -9,7 +9,10 @@ context('Game Flow', () => {
     cy.contains('Welcome to the Trivia Challenge!')
 
     cy.contains(/begin/i).click()
-    cy.url().should('eq', 'http://localhost:3000/quiz')
+
+    cy.location().should((loc) => {
+      expect(loc.pathname).to.eq('/quiz')
+    })
 
     for (var i = 0; i < 10; i++) {
       cy.contains(`${i * 10}% completed`)
@@ -21,7 +24,9 @@ context('Game Flow', () => {
       i % 2 === 0 ? cy.contains('true').click() : cy.contains('false').click()
     }
 
-    cy.url().should('eq', 'http://localhost:3000/results')
+    cy.location().should((loc) => {
+      expect(loc.pathname).to.eq('/results')
+    })
 
     cy.contains('You scored')
     cy.contains('/')

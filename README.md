@@ -99,3 +99,4 @@ The Deployment process begins by pushing a branch to the remote repository. Afte
 ## To do
 
 - [ ] Setup storybook, create and publish a design system as [this project](https://github.com/guilhermedeoliveira/storybook).
+- [ ] Make e2e game spec work for preview urls and production. It is currently working only for local environment.
