@@ -2,11 +2,14 @@
 
 context('Game Flow', () => {
   beforeEach(() => {
-    cy.visit('http://localhost:3000/')
+    cy.visit('/')
   })
 
   it('should play the game', () => {
-    cy.contains('Trivia Game!')
+    cy.contains('Welcome to the Trivia Challenge!')
+
+    cy.contains(/begin/i).click()
+    cy.url().should('eq', 'http://localhost:3000/quiz')
 
     for (var i = 0; i < 10; i++) {
       cy.contains(`${i * 10}% completed`)
