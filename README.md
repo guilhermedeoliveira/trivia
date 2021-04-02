@@ -1,5 +1,7 @@
 A trivia webapp
 
+https://trivia-delta.vercel.app/
+
 ## Table of contents
 
 - [Getting started](#getting-started)
