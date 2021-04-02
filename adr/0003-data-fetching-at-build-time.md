@@ -6,8 +6,8 @@ It was needed to fetch quiz's data from an external api.
 
 ## Options
 
-- [built-in getStaticProps](https://nextjs.org/docs/basic-features/data-fetching#getstaticprops-static-generation)
-- [use effect hook](https://reactjs.org/docs/hooks-effect.html)
+- [Built-in Next.js getStaticProps](https://nextjs.org/docs/basic-features/data-fetching#getstaticprops-static-generation)
+- [UseEffect hook](https://reactjs.org/docs/hooks-effect.html)
 
 ## Decision
 
